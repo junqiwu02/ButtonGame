@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 471}
   m_MaxSize: {x: 10000, y: 14021}
   vertical: 1
-  controlID: 71
+  controlID: 50
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 72
+  controlID: 51
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -367,9 +367,9 @@ MonoBehaviour:
     height: 505
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 88010000
     m_LastClickedID: 0
-    m_ExpandedIDs: c6f7ffff1afcffff000000000a320000
+    m_ExpandedIDs: 8c87ffff1e93ffff5293ffff5893ffffd0b0ffff80b2ffffeab3ffff7abfffffaebfffffe0bfffff96c1ffff1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -530,18 +530,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/_Main
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/_Main
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 60280000
-    m_LastClickedID: 10336
+    m_SelectedIDs: 842d0000
+    m_LastClickedID: 11652
     m_ExpandedIDs: 000000006028000026290000c6290000942a00005e2b0000242c0000fe2c0000262d00000830000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
