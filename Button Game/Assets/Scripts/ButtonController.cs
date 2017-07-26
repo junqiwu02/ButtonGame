@@ -48,7 +48,7 @@ public class ButtonController : MonoBehaviour {
             isMarked = false;
             GetComponent<Renderer>().material = yellow;
             transform.localScale = new Vector3(0.5f, 0.4f, 1f);
-            transform.parent.GetComponent<ButtonManager>().ReMark();
+            transform.parent.GetComponent<ButtonManager>().MarkSeq();
         }
         else
         {

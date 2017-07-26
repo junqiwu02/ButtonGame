@@ -18,55 +18,53 @@ public class FileManager : MonoBehaviour {
     private FingerModel[] rFingers = new FingerModel[5];
 
     private StreamWriter writer;
-    private int counter = 0;
 
 	void Start () {
         // clear the text file
         File.WriteAllText(path, "");
         writer = new StreamWriter(path, true);
+        // title
+        writer.WriteLine("time,gaze,,touch,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,");
 	}
 	
 	void Update () {
-        // write values only every x frames
-        counter++;
-        if(counter % 4 == 0)
-        {
-            counter = 0;
-
-            writer.WriteLine("time:" + Time.time + ",");
-            writer.Write("gaze:" + gazePlotter.GetPos() + ",");
-            writer.WriteLine("touch:" + touch.GetPos() + ",");
+        writer.Write(Time.time + ",");
+        writer.Write(gazePlotter.GetPos() + ",");
+        writer.Write(touch.GetPos() + ",");
             
-            // write hand values if a hand exists
-            if(lHand != null)
+        // write hand values if a hand exists
+        if(lHand != null)
+        {
+            writer.Write(lHand.GetPalmPosition().ToString("F6") + ",");
+
+            foreach (FingerModel lFinger in lFingers)
             {
-                writer.WriteLine("lHand:" + lHand.GetPalmPosition().ToString("F6") + ",");
-
-                foreach (FingerModel lFinger in lFingers)
-                {
-                    string type = lFinger.fingerType.ToString();
-                    type = "l" + type.Substring(4).ToLower();
-                    writer.Write(type + ":");
-                    writer.Write(lFinger.GetTipPosition().ToString("F6") + ",");
-                }
-                writer.WriteLine();
+                //string type = lFinger.fingerType.ToString();
+                //type = "l" + type.Substring(4).ToLower();
+                writer.Write(lFinger.GetTipPosition().ToString("F6") + ",");
             }
-
-            if(rHand != null)
-            {
-                writer.WriteLine("rHand:" + rHand.GetPalmPosition().ToString("F6") + ",");
-
-                foreach (FingerModel rFinger in rFingers)
-                {
-                    string type = rFinger.fingerType.ToString();
-                    type = "r" + type.Substring(4).ToLower();
-                    writer.Write(type + ",");
-                    writer.Write(rFinger.GetTipPosition().ToString("F6") + ",");
-                }
-                writer.WriteLine();
-            }
-            writer.WriteLine();
         }
+        else
+        {
+            writer.Write(",,,,,,,,,,,,,,,,,,");
+        }
+
+        if(rHand != null)
+        {
+            writer.Write(rHand.GetPalmPosition().ToString("F6") + ",");
+
+            foreach (FingerModel rFinger in rFingers)
+            {
+                //string type = rFinger.fingerType.ToString();
+                //type = "r" + type.Substring(4).ToLower();
+                writer.Write(rFinger.GetTipPosition().ToString("F6") + ",");
+            }
+        }
+        else
+        {
+            writer.Write(",,,,,,,,,,,,,,,,,,");
+        }
+        writer.WriteLine();
     }
 
     private void OnApplicationQuit()
@@ -86,6 +84,20 @@ public class FileManager : MonoBehaviour {
         {
             rHand = hand;
             rFingers = hand.fingers;
+        }
+    }
+
+    public void clearHand(Chirality handedness)
+    {
+        if (handedness == Chirality.Left)
+        {
+            lHand = null;
+            lFingers = null;
+        }
+        else if (handedness == Chirality.Right)
+        {
+            rHand = null;
+            rFingers = null;
         }
     }
 }

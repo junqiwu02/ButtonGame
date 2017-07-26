@@ -74,5 +74,10 @@ namespace Leap.Unity {
         }
       }
     }
-  }
+
+        private void OnDestroy()
+        {
+            //manager.clearHand(Handedness);
+        }
+    }
 }
