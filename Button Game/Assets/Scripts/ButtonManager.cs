@@ -46,10 +46,12 @@ public class ButtonManager : MonoBehaviour
             done.SetActive(true);
             SceneManager.LoadScene(0);
         }
-
-        // convert string at index step of sequence to int and mark that button
-        Int32.TryParse(sequence.Substring(step, 1), out markedButton);
-        buttons[markedButton].GetComponent<ButtonController>().Mark();
+        else
+        {
+            // convert string at index step of sequence to int and mark that button
+            Int32.TryParse(sequence.Substring(step, 1), out markedButton);
+            buttons[markedButton].GetComponent<ButtonController>().Mark();
+        }
 
         // increment step if not at last step else increment rep
         if(step < sequence.Length - 1)

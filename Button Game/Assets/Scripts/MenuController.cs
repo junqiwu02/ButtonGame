@@ -6,22 +6,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
+
     // input field reference
     public InputField sequence_input;
     public InputField repetitions_input;
 
+    [HideInInspector]
     public static string sequence = "0";
+    [HideInInspector]
     public static int repetitions = 1;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void SetSequence()
     {

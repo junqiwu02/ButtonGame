@@ -7,7 +7,7 @@ using Leap.Unity;
 
 public class FileManager : MonoBehaviour {
 
-    public string path = "Assets/Resources/Test.txt";
+    private string path = "Assets/Resources/Data.csv";
 
     public DrawGazePoint gazePlotter;
     public TouchInput touch;

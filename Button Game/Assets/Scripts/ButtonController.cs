@@ -37,7 +37,7 @@ public class ButtonController : MonoBehaviour {
     public void TouchDown()
     {
         // animation
-        transform.localScale = new Vector3(0.5f, 0.2f, 1f);
+        //transform.localScale = new Vector3(0.5f, 0.2f, 1f);
     }
 
     public void TouchUp()
@@ -47,13 +47,13 @@ public class ButtonController : MonoBehaviour {
         {
             isMarked = false;
             GetComponent<Renderer>().material = yellow;
-            transform.localScale = new Vector3(0.5f, 0.4f, 1f);
+            //transform.localScale = new Vector3(0.5f, 0.4f, 1f);
             transform.parent.GetComponent<ButtonManager>().MarkSeq();
         }
         else
         {
             // animation
-            transform.localScale = new Vector3(0.5f, 0.4f, 1f);
+            //transform.localScale = new Vector3(0.5f, 0.4f, 1f);
         }
     }
 }

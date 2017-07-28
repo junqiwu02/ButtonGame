@@ -215,6 +215,8 @@
     <Compile Include="Assets\Scripts\DrawGazePoint.cs" />
     <Compile Include="Assets\Scripts\FileManager.cs" />
     <Compile Include="Assets\Scripts\MenuController.cs" />
+    <Compile Include="Assets\Scripts\TestLoader.cs" />
+    <Compile Include="Assets\Scripts\TestMaker.cs" />
     <Compile Include="Assets\Scripts\TouchInput.cs" />
     <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUI.cs" />
     <Compile Include="Assets\Tobii\DemoScenes\Scripts\CleanUIForCanvas.cs" />
