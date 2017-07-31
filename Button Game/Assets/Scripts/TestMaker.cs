@@ -102,10 +102,10 @@ public class TestMaker : MonoBehaviour {
         File.WriteAllText(path, "");
         writer = new StreamWriter(path, true);
 
-        writer.WriteLine(numOfBlocks + "," + hasDelay + ",");
+        writer.WriteLine(numOfBlocks + "," + hasDelay);
         for(int i = 0; i < sequences.Length; i++)
         {
-            writer.WriteLine(sequences[i] + "," + repetitions[i] + ",");
+            writer.WriteLine(sequences[i] + "," + repetitions[i]);
         }
 
         // close and switch to main panel

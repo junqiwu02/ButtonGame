@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
 
-    // input field reference
+    /*// input field reference
     public InputField sequence_input;
     public InputField repetitions_input;
 
@@ -22,10 +22,40 @@ public class MenuController : MonoBehaviour {
         sequence = sequence_input.text;
         Int32.TryParse(repetitions_input.text, out repetitions);
         Debug.Log("Saved");
-    }
+    }*/
+
+    public InputField sizeField;
+    public InputField distanceField;
+    
+    [HideInInspector]
+    public static float buttonSize = 1.0f;
+    [HideInInspector]
+    public static float buttonDistance = 1.0f;
+    [HideInInspector]
+    public static bool testLoaded = false;
 
     public void LoadMain()
     {
-        SceneManager.LoadScene(1);
+        if(testLoaded)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            Debug.LogError("Must load a test first");
+        }
+    }
+
+    public void SetScale()
+    {
+        if(sizeField.text != "")
+        {
+            buttonSize = float.Parse(sizeField.text);
+        }
+
+        if(distanceField.text != "")
+        {
+            buttonDistance = float.Parse(distanceField.text);
+        }
     }
 }

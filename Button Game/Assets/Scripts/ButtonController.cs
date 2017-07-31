@@ -21,7 +21,11 @@ public class ButtonController : MonoBehaviour {
     }
 
     void Start () {
-		
+        float scale = MenuController.buttonSize;
+        float distance = MenuController.buttonDistance;
+
+        transform.localScale = new Vector3(scale * 0.5f, 0.001f, scale);
+        transform.localPosition = new Vector3(transform.localPosition.x * distance, 0, transform.localPosition.z * distance);
 	}
 	
 	void Update () {
