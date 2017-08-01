@@ -11,13 +11,17 @@ public class ButtonManager : MonoBehaviour
     public GameObject delayPanel;
     public List<GameObject> buttons;
 
+    public static bool isPaused;
+
     private int markedButton;
 
+    // test information
     private string sequence;
     private int repetition;
     private bool hasDelay;
     private int numOfBlocks;
 
+    // counters
     private int step;
     private int currentRep;
     private int currentBlock;
@@ -40,11 +44,6 @@ public class ButtonManager : MonoBehaviour
         MarkSeq();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void NextBlock()
     {
         // reset step and currentRep
@@ -62,6 +61,7 @@ public class ButtonManager : MonoBehaviour
             // if the test has delays, open delayPanel and wait for button press
             if (hasDelay)
             {
+                isPaused = true;
                 delayPanel.SetActive(true);
                 currentBlock++;
                 sequence = TestLoader.sequences[currentBlock];
@@ -80,6 +80,7 @@ public class ButtonManager : MonoBehaviour
 
     public void MarkSeq()
     {
+        isPaused = false;
         // show done and switch scenes if all reps are done
         if (currentRep >= repetition)
         {

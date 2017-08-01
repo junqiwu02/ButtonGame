@@ -24,8 +24,15 @@ public class MenuController : MonoBehaviour {
         Debug.Log("Saved");
     }*/
 
+    public InputField nameField;
+
+    // options panel
     public InputField sizeField;
     public InputField distanceField;
+
+    // test loader panel
+    public Dropdown testSelector;
+    public InputField pathField;
     
     [HideInInspector]
     public static float buttonSize = 1.0f;
@@ -33,6 +40,8 @@ public class MenuController : MonoBehaviour {
     public static float buttonDistance = 1.0f;
     [HideInInspector]
     public static bool testLoaded = false;
+    [HideInInspector]
+    public static string username = "new_user";
 
     public void LoadMain()
     {
@@ -56,6 +65,34 @@ public class MenuController : MonoBehaviour {
         if(distanceField.text != "")
         {
             buttonDistance = float.Parse(distanceField.text);
+        }
+    }
+
+    public void SetName()
+    {
+        // set username
+        if(nameField.text != "")
+        {
+            username = nameField.text;
+
+            // format
+            username = username.Replace(" ", "_");
+            username = username.ToLower();
+        }
+    }
+
+    private void Update()
+    {
+        // testSelector dropdown
+       switch(testSelector.value)
+        {
+            case 1:
+                // Day 1
+                pathField.text = "C:\\Users\\Junqi\\Documents\\Git\\ButtonGame\\Button Game\\Assets\\Resources\\Day1.csv";
+                break;
+            default:
+                // Custom
+                break;
         }
     }
 }

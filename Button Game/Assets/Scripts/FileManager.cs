@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -7,7 +8,7 @@ using Leap.Unity;
 
 public class FileManager : MonoBehaviour {
 
-    private string path = "Assets/Resources/Data.csv";
+    private string path = "Assets/Resources/";
 
     public DrawGazePoint gazePlotter;
     public TouchInput touch;
@@ -20,6 +21,8 @@ public class FileManager : MonoBehaviour {
     private StreamWriter writer;
 
 	void Start () {
+        // set path username and time
+        path += MenuController.username + "_data_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
         // clear the text file
         File.WriteAllText(path, "");
         writer = new StreamWriter(path, true);
@@ -28,43 +31,51 @@ public class FileManager : MonoBehaviour {
 	}
 	
 	void Update () {
-        writer.Write(Time.time + ",");
-        writer.Write(gazePlotter.GetPos() + ",");
-        writer.Write(touch.GetPos() + ",");
-            
-        // write hand values if a hand exists
-        if(lHand != null)
+        // only write the time if the game is paused
+        if(ButtonManager.isPaused)
         {
-            writer.Write(lHand.GetPalmPosition().ToString("F6") + ",");
-
-            foreach (FingerModel lFinger in lFingers)
-            {
-                //string type = lFinger.fingerType.ToString();
-                //type = "l" + type.Substring(4).ToLower();
-                writer.Write(lFinger.GetTipPosition().ToString("F6") + ",");
-            }
+            writer.WriteLine(Time.time + ",paused,");
         }
         else
         {
-            writer.Write(",,,,,,,,,,,,,,,,,,");
-        }
+            writer.Write(Time.time + ",");
+            writer.Write(gazePlotter.GetPos() + ",");
+            writer.Write(touch.GetPos() + ",");
 
-        if(rHand != null)
-        {
-            writer.Write(rHand.GetPalmPosition().ToString("F6") + ",");
-
-            foreach (FingerModel rFinger in rFingers)
+            // write hand values if a hand exists
+            if (lHand != null)
             {
-                //string type = rFinger.fingerType.ToString();
-                //type = "r" + type.Substring(4).ToLower();
-                writer.Write(rFinger.GetTipPosition().ToString("F6") + ",");
+                writer.Write(lHand.GetPalmPosition().ToString("F5") + ",");
+
+                foreach (FingerModel lFinger in lFingers)
+                {
+                    //string type = lFinger.fingerType.ToString();
+                    //type = "l" + type.Substring(4).ToLower();
+                    writer.Write(lFinger.GetTipPosition().ToString("F5") + ",");
+                }
             }
+            else
+            {
+                writer.Write(",,,,,,,,,,,,,,,,,,");
+            }
+
+            if (rHand != null)
+            {
+                writer.Write(rHand.GetPalmPosition().ToString("F5") + ",");
+
+                foreach (FingerModel rFinger in rFingers)
+                {
+                    //string type = rFinger.fingerType.ToString();
+                    //type = "r" + type.Substring(4).ToLower();
+                    writer.Write(rFinger.GetTipPosition().ToString("F5") + ",");
+                }
+            }
+            else
+            {
+                writer.Write(",,,,,,,,,,,,,,,,,,");
+            }
+            writer.WriteLine();
         }
-        else
-        {
-            writer.Write(",,,,,,,,,,,,,,,,,,");
-        }
-        writer.WriteLine();
     }
 
     private void OnApplicationQuit()

@@ -75,9 +75,14 @@ namespace Leap.Unity {
       }
     }
 
-        private void OnDestroy()
-        {
-            //manager.clearHand(Handedness);
-        }
+    private void OnDisable()
+    {
+        manager.clearHand(Handedness);
     }
+
+    private void OnEnable()
+    {
+        manager.SetHand(this, Handedness);
+    }
+  }
 }
