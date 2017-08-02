@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class MenuController : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class MenuController : MonoBehaviour {
         Int32.TryParse(repetitions_input.text, out repetitions);
         Debug.Log("Saved");
     }*/
-
+    // login panel
     public InputField nameField;
 
     // options panel
@@ -43,8 +44,35 @@ public class MenuController : MonoBehaviour {
     [HideInInspector]
     public static string username = "new_user";
 
+    private List<string> testNames;
+    private StreamReader reader;
+
+    private string path = "Assets/Resources/Tests";
+
+    private void Start()
+    {
+        SetTests();
+    }
+
+    public void SetTests()
+    {
+        // get file names from directory info and add them to the list
+        testNames = new List<string>() { "Custom" };
+        DirectoryInfo d = new DirectoryInfo(path);
+        FileInfo[] files = d.GetFiles("*.csv");
+        foreach(FileInfo file in files)
+        {
+            testNames.Add(file.Name);
+        }
+
+        // add the list to the dropdown
+        testSelector.ClearOptions();
+        testSelector.AddOptions(testNames);
+    }
+
     public void LoadMain()
     {
+        // load main scene if a test has been selected
         if(testLoaded)
         {
             SceneManager.LoadScene(1);
@@ -57,6 +85,7 @@ public class MenuController : MonoBehaviour {
 
     public void SetScale()
     {
+        // set button size and distance
         if(sizeField.text != "")
         {
             buttonSize = float.Parse(sizeField.text);
@@ -83,16 +112,10 @@ public class MenuController : MonoBehaviour {
 
     private void Update()
     {
-        // testSelector dropdown
-       switch(testSelector.value)
+        // if Custom test is not selected, set the path
+        if(testSelector.value != 0)
         {
-            case 1:
-                // Day 1
-                pathField.text = "C:\\Users\\Junqi\\Documents\\Git\\ButtonGame\\Button Game\\Assets\\Resources\\Day1.csv";
-                break;
-            default:
-                // Custom
-                break;
+            pathField.text = path + "/" + testNames[testSelector.value];
         }
     }
 }

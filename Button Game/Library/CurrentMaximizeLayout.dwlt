@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 17924
+  controlID: 4757
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 17883
+  controlID: 4758
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 17852
+  controlID: 4759
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,7 +203,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 64f9fdff6af9fdff82f9fdff88f9fdff8ef9fdff94f9fdff1afcffff00000000ea320000
+    m_ExpandedIDs: 1afcffff0000000038330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -280,14 +280,14 @@ MonoBehaviour:
     width: 746
     height: 504
   m_SceneLighting: 1
-  lastFramingTime: 8378.729905121361
+  lastFramingTime: 104.03229377640237
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 373.50006, y: 213.69946, z: 0}
+    m_Target: {x: 373, y: 243.5, z: 0}
     speed: 2
-    m_Value: {x: 373.50006, y: 213.69946, z: 0}
+    m_Value: {x: 373, y: 243.5, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -314,9 +314,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 422.06543
+    m_Target: 383.36746
     speed: 2
-    m_Value: 422.06543
+    m_Value: 383.36746
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -371,8 +371,8 @@ MonoBehaviour:
     y: 525
     width: 1070
     height: 345
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -418,19 +418,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts
+    - Assets/Resources
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Resources
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1c2c0000
-    m_LastClickedID: 11292
-    m_ExpandedIDs: 00000000642800002a290000ca290000982a0000622b00002a2c0000042d00002c2d00000e30000000ca9a3bffffff7f
+    m_SelectedIDs: c62a0000
+    m_LastClickedID: 10950
+    m_ExpandedIDs: 00000000642800002a290000ca2900009a2a0000642b00002a2c0000042d00002c2d00001430000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -458,7 +458,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000642800002a290000ca290000982a0000622b00002a2c0000042d00002c2d00000e30000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000642800002a290000ca2900009a2a0000642b00002a2c0000042d00002c2d00001430000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 0806000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

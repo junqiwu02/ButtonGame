@@ -7,6 +7,8 @@ using System.IO;
 
 public class TestMaker : MonoBehaviour {
 
+    public MenuController menuController;
+
     // NewTestPanel fields
     public InputField nameField;
     public InputField blockField;
@@ -31,6 +33,8 @@ public class TestMaker : MonoBehaviour {
     private int currentBlock = 0;
 
     private StreamWriter writer;
+
+    private string path = "Assets/Resources/Tests/";
 
     // set the texts every frame
     private void Update()
@@ -97,20 +101,24 @@ public class TestMaker : MonoBehaviour {
 
     public void WriteFile()
     {
-        string path = "Assets/Resources/" + testName + ".csv";
+        // set path
+        path += testName + ".csv";
 
+        // clear file
         File.WriteAllText(path, "");
         writer = new StreamWriter(path, true);
 
+        // write
         writer.WriteLine(numOfBlocks + "," + hasDelay);
         for(int i = 0; i < sequences.Length; i++)
         {
             writer.WriteLine(sequences[i] + "," + repetitions[i]);
         }
 
-        // close and switch to main panel
+        // clear test, update dropdown, and go to main panel
         writer.Close();
         ClearTest();
+        menuController.SetTests();
         newBlockPanel.SetActive(false);
         mainPanel.SetActive(true);
     }
