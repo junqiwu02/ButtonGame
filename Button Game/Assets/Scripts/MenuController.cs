@@ -47,10 +47,22 @@ public class MenuController : MonoBehaviour {
     private List<string> testNames;
     private StreamReader reader;
 
-    private string path = "Assets/Resources/Tests";
+    private string path;
+    private string editorPath = "/Resources/Tests";
+    private string buildPath = "/Tests";
 
     private void Start()
     {
+        // set path
+        if (Application.isEditor)
+        {
+            path = Application.dataPath + editorPath;
+        }
+        else
+        {
+            path = Application.dataPath + buildPath;
+        }
+
         SetTests();
     }
 
