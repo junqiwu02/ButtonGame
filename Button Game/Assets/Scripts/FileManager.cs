@@ -95,6 +95,16 @@ public class FileManager : MonoBehaviour {
         writer.Close();
     }
 
+    private void OnDisable()
+    {
+        writer.Close();
+    }
+
+    private void OnDestroy()
+    {
+        writer.Close();
+    }
+
     // set the hand references
     public void SetHand(HandModel hand, Chirality handedness)
     {

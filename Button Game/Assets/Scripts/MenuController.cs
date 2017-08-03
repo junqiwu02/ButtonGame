@@ -24,8 +24,10 @@ public class MenuController : MonoBehaviour {
         Int32.TryParse(repetitions_input.text, out repetitions);
         Debug.Log("Saved");
     }*/
+    
     // login panel
     public InputField nameField;
+    public GameObject blankFieldError;
 
     // options panel
     public InputField sizeField;
@@ -42,10 +44,13 @@ public class MenuController : MonoBehaviour {
     [HideInInspector]
     public static bool testLoaded = false;
     [HideInInspector]
-    public static string username = "new_user";
+    public static string username;
 
     private List<string> testNames;
     private StreamReader reader;
+
+    public GameObject loginPanel;
+    public GameObject mainPanel;
 
     private string path;
     private string editorPath = "/Resources/Tests";
@@ -89,10 +94,6 @@ public class MenuController : MonoBehaviour {
         {
             SceneManager.LoadScene(1);
         }
-        else
-        {
-            Debug.LogError("Must load a test first");
-        }
     }
 
     public void SetScale()
@@ -114,11 +115,20 @@ public class MenuController : MonoBehaviour {
         // set username
         if(nameField.text != "")
         {
+            blankFieldError.SetActive(false);
+
             username = nameField.text;
 
             // format
             username = username.Replace(" ", "_");
             username = username.ToLower();
+
+            loginPanel.SetActive(false);
+            mainPanel.SetActive(true);
+        }
+        else
+        {
+            blankFieldError.SetActive(true);
         }
     }
 
@@ -128,6 +138,18 @@ public class MenuController : MonoBehaviour {
         if(testSelector.value != 0)
         {
             pathField.text = path + "/" + testNames[testSelector.value];
+        }
+    }
+
+    public void Quit()
+    {
+        if(Application.isEditor)
+        {
+            //UnityEditor.EditorApplication.isPlaying = false;
+        }
+        else
+        {
+            Application.Quit();
         }
     }
 }

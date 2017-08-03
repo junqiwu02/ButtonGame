@@ -19,30 +19,41 @@ public class TestLoader : MonoBehaviour {
 
     private StreamReader reader;
 
+    public GameObject blankFieldError;
+
     public void LoadFile()
     {
-        // instantiate reader
-        reader = new StreamReader(pathField.text);
-
-        // get numOfBlocks and hasDelay from first line
-        string[] data = reader.ReadLine().Split(',');
-        Int32.TryParse(data[0], out numOfBlocks);
-        Boolean.TryParse(data[1], out hasDelay);
-
-        // create arrays based on numOfBlocks
-        sequences = new string[numOfBlocks];
-        repetitions = new int[numOfBlocks];
-
-        // fill the arrays
-        for(int i = 0; i < numOfBlocks; i++)
+        if(pathField.text != "")
         {
-            data = reader.ReadLine().Split(',');
-            sequences[i] = data[0];
-            Int32.TryParse(data[1], out repetitions[i]);
+            blankFieldError.SetActive(false);
+
+            // instantiate reader
+            reader = new StreamReader(pathField.text);
+
+            // get numOfBlocks and hasDelay from first line
+            string[] data = reader.ReadLine().Split(',');
+            Int32.TryParse(data[0], out numOfBlocks);
+            Boolean.TryParse(data[1], out hasDelay);
+
+            // create arrays based on numOfBlocks
+            sequences = new string[numOfBlocks];
+            repetitions = new int[numOfBlocks];
+
+            // fill the arrays
+            for (int i = 0; i < numOfBlocks; i++)
+            {
+                data = reader.ReadLine().Split(',');
+                sequences[i] = data[0];
+                Int32.TryParse(data[1], out repetitions[i]);
+            }
+
+            reader.Close();
+
+            MenuController.testLoaded = true;
         }
-
-        reader.Close();
-
-        MenuController.testLoaded = true;
+        else
+        {
+            blankFieldError.SetActive(true);
+        }
     }
 }

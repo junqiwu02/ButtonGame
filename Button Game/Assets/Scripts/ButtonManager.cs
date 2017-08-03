@@ -106,6 +106,11 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     /*public void MarkRand()
     {
         // alternates between changing the marked button to 0 and a random button

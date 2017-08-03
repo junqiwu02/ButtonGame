@@ -174,7 +174,7 @@ cfa93710d56cd4da2a3b2eec27bc1139 Assembly-CSharp.dll:UnityStandardAssets.Water.P
 abf0e52ce6a93a27fa785bfa25be1eab Assembly-CSharp.dll:Leap.Unity.FingerDirectionDetector
 32afd36234fe0cf6a2b6db087bd159dd Assembly-CSharp.dll:Leap.Unity.HandPool
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Leap.Unity.RuntimeGizmos.RuntimeGizmoToggle
-1f8cf6d0294f965b649ab272daf87145 Assembly-CSharp.dll:.MenuController
+925e538048449c40265d2a40a5acbf1c Assembly-CSharp.dll:.MenuController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InputManager
 1bd6d90fb4d8b0ed26aa2ba8d8c82fbb Assembly-CSharp.dll:.VRHeightOffset
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Leap.Unity.LeapHandController
@@ -208,7 +208,7 @@ de6b583b1adad06a1363641ef9367081 Assembly-CSharp.dll:.FollowTransform
 00326a644eefd0e10de602ecfe7916cc Assembly-CSharp.dll:Leap.Unity.LeapServiceProvider
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Leap.Unity.FitHeightToScreen
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Tobii.Gaming.Internal.TobiiHost
-74dd865d11dfe42876b9f690bb4c5da3 Assembly-CSharp.dll:.TestLoader
+d58f81f3acfcde2866e6db8a15c9d14c Assembly-CSharp.dll:.TestLoader
 0f0e8b49d171e61a5fe50bee83f0c573 Assembly-CSharp.dll:Leap.Unity.Space.LeapCylindricalSpace
 8e001e5fc5b51b3e4b1c112b63fc8ced Assembly-CSharp.dll:Leap.Unity.DisconnectionNotice
 7322e0e40ff2141d0a719897244dd28d Assembly-CSharp.dll:.ToggleCodeExample
@@ -229,7 +229,7 @@ f85f3d8a62886b231e86edc45927b4f2 Assembly-CSharp.dll:Leap.Unity.Attachments.Atta
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp.dll:UnityStandardAssets.Water.WaterTile
 7cbeb394505330b26f7745d00094dbbd Assembly-CSharp.dll:.DrawGazePoint
 4fdae900abf29ef9860818aa945aab1c Assembly-CSharp.dll:Leap.Unity.DetectorLogicGate
-32aab102bfc85b3eaad1e8cd7425e67c Assembly-CSharp.dll:.TestMaker
+d4bf4c353bb5bd60065044187a2ea3a1 Assembly-CSharp.dll:.TestMaker
 6daf822fbfefbf0e5841375a5f907196 Assembly-CSharp.dll:Leap.Unity.KeyEnableBehaviors
 59bb382b98cc2b6751218df282ccf1c9 Assembly-CSharp.dll:.LaserSight
 dfae038a9e92fdf94e6f30ec1bd38609 Assembly-CSharp.dll:.MapNavigation

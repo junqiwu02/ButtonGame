@@ -23,6 +23,9 @@ public class TestMaker : MonoBehaviour {
 
     public GameObject mainPanel;
     public GameObject newBlockPanel;
+    public GameObject newTestPanel;
+
+    public GameObject blankFieldError;
 
     private string testName;
     private int numOfBlocks;
@@ -79,38 +82,59 @@ public class TestMaker : MonoBehaviour {
     // create a test with empty blocks based on user input
     public void CreateTest()
     {
-        testName = nameField.text;
-        Int32.TryParse(blockField.text, out numOfBlocks);
-        hasDelay = delayToggle.isOn;
-        sequences = new string[numOfBlocks];
-        repetitions = new int[numOfBlocks];
+        if(nameField.text != "" && blockField.text != "")
+        {
+            blankFieldError.SetActive(false);
 
-        currentBlock = 0;
+            testName = nameField.text;
+            Int32.TryParse(blockField.text, out numOfBlocks);
+            hasDelay = delayToggle.isOn;
+            sequences = new string[numOfBlocks];
+            repetitions = new int[numOfBlocks];
 
-        // clear input fields
-        nameField.text = "";
-        repetitionField.text = "";
-        delayToggle.isOn = true;
+            currentBlock = 0;
+
+            // clear input fields
+            nameField.text = "";
+            repetitionField.text = "";
+            delayToggle.isOn = true;
+
+            newTestPanel.SetActive(false);
+            newBlockPanel.SetActive(true);
+        }
+        else
+        {
+            blankFieldError.SetActive(true);
+        }
     }
 
     public void SetBlock()
     {
-        // set current block
-        sequences[currentBlock] = sequenceField.text;
-        Int32.TryParse(repetitionField.text, out repetitions[currentBlock]);
-
-        // clear input fields
-        sequenceField.text = "";
-        repetitionField.text = "";
-
-        // increment current block or write file
-        if(currentBlock == numOfBlocks - 1)
+        if(sequenceField.text != "" && repetitionField.text != "")
         {
-            WriteFile();
+            blankFieldError.SetActive(false);
+
+            // set current block
+            sequences[currentBlock] = sequenceField.text;
+            Int32.TryParse(repetitionField.text, out repetitions[currentBlock]);
+
+            // clear input fields
+            sequenceField.text = "";
+            repetitionField.text = "";
+
+            // increment current block or write file
+            if (currentBlock == numOfBlocks - 1)
+            {
+                WriteFile();
+            }
+            else
+            {
+                currentBlock++;
+            }
         }
         else
         {
-            currentBlock++;
+            blankFieldError.SetActive(true);
         }
     }
 
