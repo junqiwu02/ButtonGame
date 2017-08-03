@@ -8,8 +8,6 @@ using Leap.Unity;
 
 public class FileManager : MonoBehaviour {
 
-    private string path = "Assets/Resources/";
-
     public DrawGazePoint gazePlotter;
     public TouchInput touch;
 
@@ -20,7 +18,21 @@ public class FileManager : MonoBehaviour {
 
     private StreamWriter writer;
 
-	void Start () {
+    private string path;
+    private string editorPath = "/Resources/";
+    private string buildPath = "/User Data/";
+
+    void Start () {
+        // set path
+        if(Application.isEditor)
+        {
+            path = Application.dataPath + editorPath;
+        }
+        else
+        {
+            path = Application.dataPath + buildPath;
+        }
+
         // set path username and time
         path += MenuController.username + "_data_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
         // clear the text file
