@@ -1,6 +1,6 @@
 WindowsStandalone
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ProgressButton
-6ebea124627bf9acba462ac01f850af1 Assembly-CSharp.dll:.ButtonManager
+a2ddc5ef7b6ea1ebb1697ee292d4cde1 Assembly-CSharp.dll:.ButtonManager
 c2225c5b6cb7ab9c1b8f2eb70a8e3916 Assembly-CSharp.dll:.MarkAtGaze
 10a30baaa2750c3340b1540237d21546 Assembly-CSharp.dll:.PrintGazePosition
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker

@@ -36,6 +36,7 @@ public class MenuController : MonoBehaviour {
     // test loader panel
     public Dropdown testSelector;
     public InputField pathField;
+    private bool pathFieldCleared;
     
     [HideInInspector]
     public static float buttonSize = 1.0f;
@@ -137,7 +138,18 @@ public class MenuController : MonoBehaviour {
         // if Custom test is not selected, set the path
         if(testSelector.value != 0)
         {
+            pathField.transform.localPosition = new Vector3(10000f, 10000f, 0f);
             pathField.text = path + "/" + testNames[testSelector.value];
+            pathFieldCleared = false;
+        }
+        else
+        {
+            if (!pathFieldCleared)
+            {
+                pathField.text = "";
+                pathFieldCleared = true;
+            }
+            pathField.transform.localPosition = new Vector3(0f, -50f, 0f);
         }
     }
 

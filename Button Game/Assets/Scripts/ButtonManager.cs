@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject done;
     public GameObject delayPanel;
     public List<GameObject> buttons;
+    public GameObject loading;
 
     public static bool isPaused;
 
@@ -52,7 +53,7 @@ public class ButtonManager : MonoBehaviour
         // if currentBlock is greater than numOfBlocks, go to main menu
         if (currentBlock >= numOfBlocks - 1)
         {
-            SceneManager.LoadScene(0);
+            LoadMenu();
         }
         else
         {
@@ -85,7 +86,7 @@ public class ButtonManager : MonoBehaviour
         if (currentRep >= repetition)
         {
             done.SetActive(true);
-            NextBlock();
+            Invoke("NextBlock", 1.0f);
         }
         else
         {
@@ -108,6 +109,7 @@ public class ButtonManager : MonoBehaviour
 
     public void LoadMenu()
     {
+        loading.SetActive(true);
         SceneManager.LoadScene(0);
     }
 
