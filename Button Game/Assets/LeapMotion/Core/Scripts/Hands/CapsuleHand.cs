@@ -189,7 +189,7 @@ namespace Leap.Unity {
 
     private void drawSphere(Vector3 position, float radius = SPHERE_RADIUS) {
       //multiply radius by 2 because the default unity sphere has a radius of 0.5 meters at scale 1.
-      Graphics.DrawMesh(_sphereMesh, Matrix4x4.TRS(position, Quaternion.identity, Vector3.one * radius * 2.0f), _sphereMat, 0);
+      Graphics.DrawMesh(_sphereMesh, Matrix4x4.TRS(position, Quaternion.identity, Vector3.one * radius * 2.0f), _sphereMat, LayerMask.NameToLayer("Debug"));
     }
 
     private void drawCylinder(Vector3 a, Vector3 b) {
