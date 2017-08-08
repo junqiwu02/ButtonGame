@@ -45,7 +45,7 @@ public class MenuController : MonoBehaviour {
     [HideInInspector]
     public static bool testLoaded = false;
     [HideInInspector]
-    public static string username;
+    public static string username = "new_user";
 
     private List<string> testNames;
     private StreamReader reader;
