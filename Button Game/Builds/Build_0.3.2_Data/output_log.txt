@@ -1,0 +1,46 @@
+Initialize engine version: 2017.1.0f3 (472613c02cf7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 620 (ID=0x5916)
+    Vendor:   Intel
+    VRAM:     1133 MB
+    Driver:   21.20.16.4636
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
+Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.2_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.027 seconds
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 18.705379 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: b578 -> priority: 1 
+  Thread -> id: 91d8 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.207766 ms
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 809.
+Total: 1.214679 ms (FindLiveObjects: 0.075516 ms CreateObjectMapping: 0.051728 ms MarkObjects: 1.048543 ms  DeleteObjects: 0.037758 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 30.868784 ms
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1000.
+Total: 0.922808 ms (FindLiveObjects: 0.074005 ms CreateObjectMapping: 0.042666 ms MarkObjects: 0.619988 ms  DeleteObjects: 0.184259 ms)
+

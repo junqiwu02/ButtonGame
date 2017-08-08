@@ -34,36 +34,41 @@ public class FileManager : MonoBehaviour {
         }
 
         // set path username and time
-        path += MenuController.username + "_data_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv";
+        path += MenuController.username + "_data_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".csv";
         // clear the text file
         File.WriteAllText(path, "");
         writer = new StreamWriter(path, true);
         // title
-        writer.WriteLine("time,gaze,,touch,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,");
+        writer.WriteLine("time,gaze,,touch,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
 	}
 	
 	void Update () {
         // only write the time if the game is paused
         if(ButtonManager.isPaused)
         {
-            writer.WriteLine(Time.time + ",paused,");
+            writer.WriteLine(Time.time + ",paused");
         }
         else
         {
             writer.Write(Time.time + ",");
-            writer.Write(gazePlotter.GetPos() + ",");
-            writer.Write(touch.GetPos() + ",");
+            string gazePos = gazePlotter.GetPos() + ",";
+            // remove parentheses
+            writer.Write(gazePos.Replace("(","").Replace(")",""));
+            string touchPos = touch.GetPos() + ",";
+            writer.Write(touchPos.Replace("(","").Replace(")",""));
 
             // write hand values if a hand exists
             if (lHand != null)
             {
-                writer.Write(lHand.GetPalmPosition().ToString("F5") + ",");
+                string palmPos = lHand.GetPalmPosition().ToString("F5") + ",";
+                writer.Write(palmPos.Replace("(","").Replace(")",""));
 
                 foreach (FingerModel lFinger in lFingers)
                 {
                     //string type = lFinger.fingerType.ToString();
                     //type = "l" + type.Substring(4).ToLower();
-                    writer.Write(lFinger.GetTipPosition().ToString("F5") + ",");
+                    string fingerPos = lFinger.GetTipPosition().ToString("F5") + ",";
+                    writer.Write(fingerPos.Replace("(","").Replace(")",""));
                 }
             }
             else
@@ -73,18 +78,31 @@ public class FileManager : MonoBehaviour {
 
             if (rHand != null)
             {
-                writer.Write(rHand.GetPalmPosition().ToString("F5") + ",");
+                string palmPos = rHand.GetPalmPosition().ToString("F5") + ",";
+                writer.Write(palmPos.Replace("(", "").Replace(")", ""));
 
+                int i = 0;
                 foreach (FingerModel rFinger in rFingers)
                 {
                     //string type = rFinger.fingerType.ToString();
                     //type = "r" + type.Substring(4).ToLower();
-                    writer.Write(rFinger.GetTipPosition().ToString("F5") + ",");
+                    // counter so that last entry doesn't have an extra comma
+                    string fingerPos;
+                    if(i == 4)
+                    {
+                        fingerPos = rFinger.GetTipPosition().ToString("F5");
+                    }
+                    else
+                    {
+                        fingerPos = rFinger.GetTipPosition().ToString("F5") + ",";
+                    }
+                    writer.Write(fingerPos.Replace("(", "").Replace(")", ""));
+                    i++;
                 }
             }
             else
             {
-                writer.Write(",,,,,,,,,,,,,,,,,,");
+                writer.Write(",,,,,,,,,,,,,,,,,");
             }
             writer.WriteLine();
         }
@@ -120,7 +138,7 @@ public class FileManager : MonoBehaviour {
         }
     }
 
-    public void clearHand(Chirality handedness)
+    public void ClearHand(Chirality handedness)
     {
         if (handedness == Chirality.Left)
         {

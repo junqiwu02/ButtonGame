@@ -29,12 +29,15 @@ namespace Leap.Unity {
 
     public override void InitHand() {
       base.InitHand();
+            // edit
       manager.SetHand(this, Handedness);
     }
 
     public override void UpdateHand() {
+            // edit
+            manager.SetHand(this, Handedness);
 
-      for (int f = 0; f < fingers.Length; ++f) {
+            for (int f = 0; f < fingers.Length; ++f) {
         if (fingers[f] != null) {
           fingers[f].UpdateFinger();
         }
@@ -77,7 +80,7 @@ namespace Leap.Unity {
 
     private void OnDisable()
     {
-        manager.clearHand(Handedness);
+        manager.ClearHand(Handedness);
     }
 
     private void OnEnable()
