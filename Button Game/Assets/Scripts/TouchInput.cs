@@ -5,7 +5,7 @@ using UnityEngine;
 public class TouchInput : MonoBehaviour {
 
     public LayerMask touchMask;
-    private Vector2 touchPos;
+    private Vector2 touchPos = new Vector2(float.NaN, float.NaN);
 
     // Use this for initialization
     void Start () {
@@ -34,7 +34,7 @@ public class TouchInput : MonoBehaviour {
                 {
                     recipient.GetComponent<ButtonController>().TouchUp();
                     // reset touchPos
-                    touchPos = Vector2.zero;
+                    touchPos = new Vector2(float.NaN, float.NaN);
                 }
             }
         }

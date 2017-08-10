@@ -46,7 +46,7 @@ public class TestLoader : MonoBehaviour {
                 sequences[i] = data[0];
                 Int32.TryParse(data[1], out repetitions[i]);
             }
-
+            
             reader.Close();
 
             MenuController.testLoaded = true;

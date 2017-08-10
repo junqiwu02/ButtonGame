@@ -73,7 +73,11 @@ public class FileManager : MonoBehaviour {
             }
             else
             {
-                writer.Write(",,,,,,,,,,,,,,,,,,");
+                //writer.Write(",,,,,,,,,,,,,,,,,,");
+                for(int i = 0; i < 18; i++)
+                {
+                    writer.Write(float.NaN + ",");
+                }
             }
 
             if (rHand != null)
@@ -102,7 +106,12 @@ public class FileManager : MonoBehaviour {
             }
             else
             {
-                writer.Write(",,,,,,,,,,,,,,,,,");
+                //writer.Write(",,,,,,,,,,,,,,,,,");
+                for(int i = 0; i < 17; i++)
+                {
+                    writer.Write(float.NaN + ",");
+                }
+                writer.Write(float.NaN);
             }
             writer.WriteLine();
         }
