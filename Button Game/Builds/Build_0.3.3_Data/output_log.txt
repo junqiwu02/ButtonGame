@@ -23,24 +23,36 @@ Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Bu
 Loading C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.3_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
 Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.3_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\Junqi\Documents\Git\ButtonGame\Button Game\Builds\Build_0.3.3_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.068 seconds
+- Completed reload, in  0.067 seconds
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.937789 ms
+UnloadTime: 47.755677 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 6a8 -> priority: 1 
-  Thread -> id: 3314 -> priority: 1 
+  Thread -> id: 20f0 -> priority: 1 
+  Thread -> id: ee8 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.161483 ms
+UnloadTime: 4.001980 ms
 
 Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 809.
-Total: 0.502937 ms (FindLiveObjects: 0.067209 ms CreateObjectMapping: 0.047575 ms MarkObjects: 0.357568 ms  DeleteObjects: 0.030206 ms)
+Total: 1.611515 ms (FindLiveObjects: 0.066454 ms CreateObjectMapping: 0.047197 ms MarkObjects: 1.465769 ms  DeleteObjects: 0.031716 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.958979 ms
+UnloadTime: 2458.855197 ms
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 1064.
-Total: 1.115751 ms (FindLiveObjects: 0.111008 ms CreateObjectMapping: 0.064566 ms MarkObjects: 0.684553 ms  DeleteObjects: 0.255244 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 867.
+Total: 2.750676 ms (FindLiveObjects: 0.189545 ms CreateObjectMapping: 0.206536 ms MarkObjects: 1.845993 ms  DeleteObjects: 0.507091 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.768091 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 814.
+Total: 1.677214 ms (FindLiveObjects: 0.150654 ms CreateObjectMapping: 0.158583 ms MarkObjects: 1.271314 ms  DeleteObjects: 0.094772 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2732.827148 ms
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 868.
+Total: 2.560376 ms (FindLiveObjects: 0.179728 ms CreateObjectMapping: 0.190300 ms MarkObjects: 1.697226 ms  DeleteObjects: 0.490477 ms)
 
