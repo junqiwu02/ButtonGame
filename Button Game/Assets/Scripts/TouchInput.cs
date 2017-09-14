@@ -7,17 +7,19 @@ public class TouchInput : MonoBehaviour {
     public LayerMask touchMask;
     private Vector2 touchPos = new Vector2(float.NaN, float.NaN);
 
-    // Use this for initialization
     void Start () {
-		
+        // if not in debug mode, change camera culling to hide all debug objects
+		if(!MenuController.isDebug)
+        {
+            GetComponent<Camera>().cullingMask = ~(1 << LayerMask.NameToLayer("Debug"));
+        }
 	}
 	
-	// Update is called once per frame
 	void Update () {
         // execute for each touch input
         foreach (Touch touch in Input.touches)
         {
-            touchPos = touch.position;
+            // touchPos = touch.position;
             // raycast
             Ray ray = GetComponent<Camera>().ScreenPointToRay(touch.position);
             RaycastHit hit;
@@ -26,15 +28,20 @@ public class TouchInput : MonoBehaviour {
             {
                 // if hits, get the gameObject and run TouchDown() or TouchUp()
                 GameObject recipient = hit.transform.gameObject;
-                if (touch.phase == TouchPhase.Began)
+                // set touchPos
+                touchPos = new Vector2(hit.point.x, hit.point.y);
+                if(recipient.GetComponent<ButtonController>() != null)
                 {
-                    recipient.GetComponent<ButtonController>().TouchDown();
-                }
-                else if (touch.phase == TouchPhase.Ended)
-                {
-                    recipient.GetComponent<ButtonController>().TouchUp();
-                    // reset touchPos
-                    touchPos = new Vector2(float.NaN, float.NaN);
+                    if (touch.phase == TouchPhase.Began)
+                    {
+                        recipient.GetComponent<ButtonController>().TouchDown();
+                    }
+                    else if (touch.phase == TouchPhase.Ended)
+                    {
+                        recipient.GetComponent<ButtonController>().TouchUp();
+                        // reset touchPos
+                        touchPos = new Vector2(float.NaN, float.NaN);
+                    }
                 }
             }
         }

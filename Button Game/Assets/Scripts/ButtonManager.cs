@@ -113,6 +113,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public GameObject GetButton()
+    {
+        return buttons[markedButton];
+    }
+
     /*public void MarkRand()
     {
         // alternates between changing the marked button to 0 and a random button

@@ -10,6 +10,7 @@ public class FileManager : MonoBehaviour {
 
     public DrawGazePoint gazePlotter;
     public TouchInput touch;
+    public ButtonManager bManager;
 
     private HandModel lHand;
     private HandModel rHand;
@@ -22,7 +23,11 @@ public class FileManager : MonoBehaviour {
     private string editorPath = "/Resources/";
     private string buildPath = "/User Data/";
 
+	private double startTime;
+
     void Start () {
+		startTime = Time.time;
+
         // set path
         if(Application.isEditor)
         {
@@ -39,23 +44,31 @@ public class FileManager : MonoBehaviour {
         File.WriteAllText(path, "");
         writer = new StreamWriter(path, true);
         // title
-        writer.WriteLine("time,gaze,,touch,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
-	}
-	
-	void Update () {
+        writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
+        // writer.WriteLine("time,gaze,,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
+    }
+
+    void Update () {
+		double elapsedTime = Time.time - startTime;
+
         // only write the time if the game is paused
         if(ButtonManager.isPaused)
         {
-            writer.WriteLine(Time.time + ",paused");
+            writer.WriteLine(elapsedTime + ",paused");
         }
         else
         {
-            writer.Write(Time.time + ",");
-            string gazePos = gazePlotter.GetPos() + ",";
+            writer.Write(elapsedTime + ",");
+            // string gazePos = gazePlotter.GetPos() + ",";
             // remove parentheses
-            writer.Write(gazePos.Replace("(","").Replace(")",""));
-            string touchPos = touch.GetPos() + ",";
+            // writer.Write(gazePos.Replace("(","").Replace(")",""));
+            string touchPos = touch.GetPos().ToString("F5") + ",";
             writer.Write(touchPos.Replace("(","").Replace(")",""));
+
+            // get marked button position
+            Vector3 bPos3 = bManager.GetButton().transform.position;
+            Vector2 bPos = new Vector2(bPos3.x, bPos3.y);
+            writer.Write(bPos.ToString("F5").Replace("(", "").Replace(")", "") + ",");
 
             // write hand values if a hand exists
             if (lHand != null)

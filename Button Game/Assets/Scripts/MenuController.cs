@@ -32,6 +32,8 @@ public class MenuController : MonoBehaviour {
     // options panel
     public InputField sizeField;
     public InputField distanceField;
+    public Toggle DebugMode;
+    public static bool isDebug = true;
 
     // test loader panel
     public Dropdown testSelector;
@@ -90,6 +92,8 @@ public class MenuController : MonoBehaviour {
 
     public void LoadMain()
     {
+        isDebug = DebugMode.isOn;
+        Debug.Log(isDebug);
         // load main scene if a test has been selected
         if(testLoaded)
         {
