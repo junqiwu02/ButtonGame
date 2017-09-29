@@ -96,6 +96,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 1e8e3f090e147911b9078f91b0331fcf Assembly-CSharp.dll:.GazePlotter
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CalibrationManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SetCarCycleOffset
 3226707575a390bc6fb8702114fef5b3 Assembly-CSharp.dll:Leap.Unity.RiggedHand
 1524c2414b106ad2d80af18cd7c277ab Assembly-CSharp.dll:Leap.Unity.RuntimeGizmos.RuntimeGizmoManager
@@ -221,12 +222,15 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 032208436d8bb2b81d0290ef55b5286d Assembly-CSharp.dll:.SimpleMoveController
 ac78702352b23eea116ae8cd263cafbf Assembly-CSharp.dll:Leap.Unity.ExtendedFingerDetector
 be68a326f522e456f6b5554c6b068fd4 Assembly-CSharp.dll:Leap.Unity.Comment
+b29d3d1dc069f325a9f0ec5f01b02cbf Assembly-CSharp.dll:.CalButton
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.Water.GerstnerDisplace
 540ce0f341c4ebabefbd0b62fa3f2693 Assembly-CSharp.dll:Leap.Unity.SkeletalHand
 64c758d4b69504a7d580c33ca63474b5 Assembly-CSharp.dll:Leap.Unity.RigidFinger
 55537fba4420228fdfb3ef9cb6736671 Assembly-CSharp.dll:.EyeTrackerSettingsMenu
 f85f3d8a62886b231e86edc45927b4f2 Assembly-CSharp.dll:Leap.Unity.Attachments.AttachmentHand
 6746ad828d32ad6e5c07a63950fd4be6 Assembly-CSharp.dll:UnityStandardAssets.Water.WaterTile
+902beffff62987041a3cd1f39cd97b1e Assembly-CSharp.dll:.Calibrate
+033d10f355eb318b35c97a6f78b43cdd Assembly-CSharp.dll:.TouchInputMenu
 7cbeb394505330b26f7745d00094dbbd Assembly-CSharp.dll:.DrawGazePoint
 4fdae900abf29ef9860818aa945aab1c Assembly-CSharp.dll:Leap.Unity.DetectorLogicGate
 d4bf4c353bb5bd60065044187a2ea3a1 Assembly-CSharp.dll:.TestMaker

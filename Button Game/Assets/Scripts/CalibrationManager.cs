@@ -9,7 +9,7 @@ public class CalibrationManager : MonoBehaviour {
 
     private string path;
     private string editorPath = "/Resources/";
-    private string buildPath = "";
+    private string buildPath = "/";
 
     private Vector3 centerPos;
     private Vector3 planePos;

@@ -26,7 +26,7 @@ public class Calibrate : MonoBehaviour {
 
     private string path;
     private string editorPath = "/Resources/";
-    private string buildPath = "";
+    private string buildPath = "/";
 
     private void Start()
     {

@@ -1412,7 +1412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce285d7e874674ca569deb0f97ee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisButton: {fileID: 333078323}
   buttonNum: 2
   cal: {fileID: 1165982192}
 --- !u!23 &333078326
@@ -2124,7 +2123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce285d7e874674ca569deb0f97ee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisButton: {fileID: 371827783}
   buttonNum: 1
   cal: {fileID: 1165982192}
 --- !u!1 &373193097
@@ -9093,7 +9091,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1597381661
 GameObject:
   m_ObjectHideFlags: 0
@@ -10245,7 +10243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce285d7e874674ca569deb0f97ee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisButton: {fileID: 1792633750}
   buttonNum: 0
   cal: {fileID: 1165982192}
 --- !u!1 &1804812078
@@ -12045,7 +12042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce285d7e874674ca569deb0f97ee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisButton: {fileID: 2101835136}
   buttonNum: 3
   cal: {fileID: 1165982192}
 --- !u!23 &2101835139
