@@ -93,7 +93,6 @@ public class MenuController : MonoBehaviour {
     public void LoadMain()
     {
         isDebug = DebugMode.isOn;
-        Debug.Log(isDebug);
         // load main scene if a test has been selected
         if(testLoaded)
         {

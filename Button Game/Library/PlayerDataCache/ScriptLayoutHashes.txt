@@ -152,7 +152,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 ee2a1c7509fbf1212ce3249bea96913f Assembly-CSharp.dll:Leap.Unity.LeapImageRetriever
 ec5a8338237958f69965c7cc24e538c4 Assembly-CSharp.dll:.HighlightsPostEffect
-6ff82e93608f30057236d2cc4fc29dc5 Assembly-CSharp.dll:.FileManager
+4a38d5386d79c4d35808de60883d0c39 Assembly-CSharp.dll:.FileManager
 609b40990a613cdd45e3fefd6346c3ff Assembly-CSharp.dll:Leap.Unity.Attachments.AttachmentHands
 e4bcdbbccc9c7143702ada1780babc3a Assembly-CSharp.dll:Leap.Unity.FpsLabel
 c69ab09f0f98f6621b8f22557fdfb322 Assembly-CSharp.dll:.GunThirdPerson
@@ -174,7 +174,7 @@ cfa93710d56cd4da2a3b2eec27bc1139 Assembly-CSharp.dll:UnityStandardAssets.Water.P
 abf0e52ce6a93a27fa785bfa25be1eab Assembly-CSharp.dll:Leap.Unity.FingerDirectionDetector
 32afd36234fe0cf6a2b6db087bd159dd Assembly-CSharp.dll:Leap.Unity.HandPool
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Leap.Unity.RuntimeGizmos.RuntimeGizmoToggle
-925e538048449c40265d2a40a5acbf1c Assembly-CSharp.dll:.MenuController
+477f0bc271ba85baf09b5dd55dae33fb Assembly-CSharp.dll:.MenuController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InputManager
 1bd6d90fb4d8b0ed26aa2ba8d8c82fbb Assembly-CSharp.dll:.VRHeightOffset
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Leap.Unity.LeapHandController
