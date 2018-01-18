@@ -57,7 +57,7 @@ public class FileManager : MonoBehaviour {
             File.WriteAllText(path, "");
             writer = new StreamWriter(path, true);
             // title
-            writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,GazePoint.x,GazePoint.y");
+            writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,GazePoint.x,GazePoint.y,GazePoint.z");
             // writer.WriteLine("time,gaze,,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
         }
     }
@@ -149,11 +149,11 @@ public class FileManager : MonoBehaviour {
 				if (!float.IsNaN (gazeVector.x) && !float.IsNaN (gazeVector.y)) {
 					gazeVector.x = Map (gazeVector.x, 0, Screen.width, -canvasWidth / 2, canvasWidth / 2);
 					gazeVector.y = Map (gazeVector.y, 0, Screen.height, -canvasHeight / 2, canvasHeight / 2);
-					writer.Write (","+gazeVector.x+","+gazeVector.y);
+					writer.Write (","+gazeVector.x+","+gazeVector.y+","+0);
 				} 
 				else 
 				{
-					writer.Write (",NaN,NaN");
+					writer.Write (",NaN,NaN,NaN");
 				}
                 writer.WriteLine();
             }

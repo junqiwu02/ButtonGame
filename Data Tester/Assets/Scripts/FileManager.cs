@@ -19,7 +19,9 @@ public class FileManager : MonoBehaviour {
     public HandController rRingCon;
     public HandController rPinkyCon;
 
-    private string path = "Assets/Resources/Data.csv";
+	public Transform gazePoint;
+
+    private string path = "Assets/Resources/Data2.csv";
     private StreamReader reader;
 
     private float[] timeStamps;
@@ -38,6 +40,9 @@ public class FileManager : MonoBehaviour {
     private Vector3[] rMiddle;
     private Vector3[] rRing;
     private Vector3[] rPinky;
+
+	private Vector2[] gazePoints;
+
 
     void Start () {
         int numOfLines = File.ReadAllLines(path).Length;
@@ -58,8 +63,10 @@ public class FileManager : MonoBehaviour {
         rThumb = new Vector3[numOfLines - 1];
         rIndex = new Vector3[numOfLines - 1];
         rMiddle = new Vector3[numOfLines - 1];
-        rRing = new Vector3[numOfLines - 1];
-        rPinky = new Vector3[numOfLines - 1];
+		rRing = new Vector3[numOfLines - 1];
+		rPinky = new Vector3[numOfLines - 1];
+
+		gazePoints = new Vector2[numOfLines - 1];
 
         for(int i = 0; i < numOfLines - 1; i++)
         {
@@ -67,19 +74,20 @@ public class FileManager : MonoBehaviour {
 
             timeStamps[i] = float.Parse(data[0]);
 
-            lPalm[i] = new Vector3(float.Parse(data[5]), float.Parse(data[6]), float.Parse(data[7]));
-            lThumb[i] = new Vector3(float.Parse(data[8]), float.Parse(data[9]), float.Parse(data[10]));
-            lIndex[i] = new Vector3(float.Parse(data[11]), float.Parse(data[12]), float.Parse(data[13]));
-            lMiddle[i] = new Vector3(float.Parse(data[14]), float.Parse(data[15]), float.Parse(data[16]));
-            lRing[i] = new Vector3(float.Parse(data[17]), float.Parse(data[18]), float.Parse(data[19]));
-            lPinky[i] = new Vector3(float.Parse(data[20]), float.Parse(data[21]), float.Parse(data[22]));
+            lPalm[i] = new Vector3(float.Parse(data[3]), float.Parse(data[4]), float.Parse(data[5]));
+            lThumb[i] = new Vector3(float.Parse(data[6]), float.Parse(data[7]), float.Parse(data[8]));
+            lIndex[i] = new Vector3(float.Parse(data[9]), float.Parse(data[10]), float.Parse(data[11]));
+            lMiddle[i] = new Vector3(float.Parse(data[12]), float.Parse(data[13]), float.Parse(data[14]));
+            lRing[i] = new Vector3(float.Parse(data[15]), float.Parse(data[16]), float.Parse(data[17]));
+            lPinky[i] = new Vector3(float.Parse(data[18]), float.Parse(data[19]), float.Parse(data[20]));
 
-            rPalm[i] = new Vector3(float.Parse(data[23]), float.Parse(data[24]), float.Parse(data[25]));
-            rThumb[i] = new Vector3(float.Parse(data[26]), float.Parse(data[27]), float.Parse(data[28]));
-            rIndex[i] = new Vector3(float.Parse(data[29]), float.Parse(data[30]), float.Parse(data[31]));
-            rMiddle[i] = new Vector3(float.Parse(data[32]), float.Parse(data[33]), float.Parse(data[34]));
-            rRing[i] = new Vector3(float.Parse(data[35]), float.Parse(data[36]), float.Parse(data[37]));
-            rPinky[i] = new Vector3(float.Parse(data[38]), float.Parse(data[39]), float.Parse(data[40]));
+            rPalm[i] = new Vector3(float.Parse(data[21]), float.Parse(data[22]), float.Parse(data[23]));
+            rThumb[i] = new Vector3(float.Parse(data[24]), float.Parse(data[25]), float.Parse(data[26]));
+            rIndex[i] = new Vector3(float.Parse(data[27]), float.Parse(data[28]), float.Parse(data[30]));
+            rMiddle[i] = new Vector3(float.Parse(data[30]), float.Parse(data[31]), float.Parse(data[32]));
+            rRing[i] = new Vector3(float.Parse(data[33]), float.Parse(data[34]), float.Parse(data[35]));
+            rPinky[i] = new Vector3(float.Parse(data[36]), float.Parse(data[37]), float.Parse(data[38]));
+			gazePoints [i] = new Vector3 (float.Parse (data [39]), float.Parse (data [40]), float.Parse(data[41]));
         }
     }
 	
@@ -105,5 +113,8 @@ public class FileManager : MonoBehaviour {
         rMiddleCon.SetLerpPos(rMiddle[currTimeStamp]);
         rRingCon.SetLerpPos(rRing[currTimeStamp]);
         rPinkyCon.SetLerpPos(rPinky[currTimeStamp]);
+
+		if(!float.IsNaN(gazePoints[currTimeStamp].x))
+			gazePoint.position = gazePoints [currTimeStamp];
     }
 }
