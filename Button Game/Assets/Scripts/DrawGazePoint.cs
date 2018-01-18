@@ -15,6 +15,7 @@ public class DrawGazePoint : MonoBehaviour {
         RectTransform canvasTransform = GetComponent<RectTransform>();
         canvasWidth = canvasTransform.rect.width;
         canvasHeight = canvasTransform.rect.height;
+
 	}
 	
 	void Update () {

@@ -5,6 +5,8 @@ using UnityEngine;
 using System.IO;
 using Leap;
 using Leap.Unity;
+using Tobii.Gaming;
+
 
 public class FileManager : MonoBehaviour {
 
@@ -25,7 +27,16 @@ public class FileManager : MonoBehaviour {
 
 	private double startTime;
 
-    void Start () {
+
+	public RectTransform canvasTransform;
+	private float canvasWidth;
+	private float canvasHeight;
+
+
+	void Start () {
+		canvasWidth = canvasTransform.rect.width;
+		canvasHeight = canvasTransform.rect.height;
+
         if(!MenuController.username.Equals("nosave"))
         {
             startTime = Time.time;
@@ -46,7 +57,7 @@ public class FileManager : MonoBehaviour {
             File.WriteAllText(path, "");
             writer = new StreamWriter(path, true);
             // title
-            writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
+            writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,GazePoint.x,GazePoint.y");
             // writer.WriteLine("time,gaze,,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
         }
     }
@@ -131,11 +142,27 @@ public class FileManager : MonoBehaviour {
                     }
                     writer.Write(float.NaN);
                 }
+
+				///////////////////////////////////////////////////////////////////////
+				///Write the gaze point tracking data
+				Vector2 gazeVector = TobiiAPI.GetGazePoint().Screen;
+				if (!float.IsNaN (gazeVector.x) && !float.IsNaN (gazeVector.y)) {
+					gazeVector.x = Map (gazeVector.x, 0, Screen.width, -canvasWidth / 2, canvasWidth / 2);
+					gazeVector.y = Map (gazeVector.y, 0, Screen.height, -canvasHeight / 2, canvasHeight / 2);
+					writer.Write (","+gazeVector.x+","+gazeVector.y);
+				} 
+				else 
+				{
+					writer.Write (",NaN,NaN");
+				}
                 writer.WriteLine();
             }
         }
     }
-
+	private float Map(float value, float from1, float to1, float from2, float to2)
+	{
+		return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+	}
     private void OnApplicationQuit()
     {
         if (!MenuController.username.Equals("nosave"))
