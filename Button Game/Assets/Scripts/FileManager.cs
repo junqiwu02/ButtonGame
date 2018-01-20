@@ -57,7 +57,7 @@ public class FileManager : MonoBehaviour {
             File.WriteAllText(path, "");
             writer = new StreamWriter(path, true);
             // title
-            writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,GazePoint.x,GazePoint.y,GazePoint.z");
+            writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,GazePoint.x,GazePoint.y");
             // writer.WriteLine("time,gaze,,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
         }
     }
@@ -145,15 +145,16 @@ public class FileManager : MonoBehaviour {
 
 				///////////////////////////////////////////////////////////////////////
 				///Write the gaze point tracking data
-				Vector2 gazeVector = TobiiAPI.GetGazePoint().Screen;
+
+                Vector2 gazeVector = TobiiAPI.GetGazePoint().Viewport;
 				if (!float.IsNaN (gazeVector.x) && !float.IsNaN (gazeVector.y)) {
-					gazeVector.x = Map (gazeVector.x, 0, Screen.width, -canvasWidth / 2, canvasWidth / 2);
-					gazeVector.y = Map (gazeVector.y, 0, Screen.height, -canvasHeight / 2, canvasHeight / 2);
-					writer.Write (","+gazeVector.x+","+gazeVector.y+","+0);
+					gazeVector.x = Map (gazeVector.x, 0, 1, -0.32f, 0.32f);
+					gazeVector.y = Map (gazeVector.y, 0, 1, -0.18f, 0.18f);
+					writer.Write (","+gazeVector.x+","+gazeVector.y);
 				} 
 				else 
 				{
-					writer.Write (",NaN,NaN,NaN");
+					writer.Write (",NaN,NaN");
 				}
                 writer.WriteLine();
             }
