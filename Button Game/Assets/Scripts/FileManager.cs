@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
-using Leap;
 using Leap.Unity;
 using Tobii.Gaming;
 
@@ -13,6 +13,9 @@ public class FileManager : MonoBehaviour {
     public DrawGazePoint gazePlotter;
     public TouchInput touch;
     public ButtonManager bManager;
+
+    public Text xpos;
+    public Text ypos;
 
     private HandModel lHand;
     private HandModel rHand;
@@ -26,7 +29,6 @@ public class FileManager : MonoBehaviour {
     private string buildPath = "/User Data/";
 
 	private double startTime;
-
 
 	public RectTransform canvasTransform;
 	private float canvasWidth;
@@ -147,7 +149,9 @@ public class FileManager : MonoBehaviour {
 				///Write the gaze point tracking data
 
                 Vector2 gazeVector = TobiiAPI.GetGazePoint().Viewport;
-				if (!float.IsNaN (gazeVector.x) && !float.IsNaN (gazeVector.y)) {
+                xpos.text = TobiiAPI.GetGazePoint().Screen.x.ToString();
+                ypos.text = TobiiAPI.GetGazePoint().Screen.y.ToString();
+                if (!float.IsNaN (gazeVector.x) && !float.IsNaN (gazeVector.y)) {
 					gazeVector.x = Map (gazeVector.x, 0, 1, -0.32f, 0.32f);
 					gazeVector.y = Map (gazeVector.y, 0, 1, -0.18f, 0.18f);
 					writer.Write (","+gazeVector.x+","+gazeVector.y);
