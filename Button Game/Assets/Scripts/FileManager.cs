@@ -14,6 +14,8 @@ public class FileManager : MonoBehaviour {
     public TouchInput touch;
     public ButtonManager bManager;
 
+    public Toggle isTobiiOnTop;
+
     public Text xpos;
     public Text ypos;
 
@@ -33,7 +35,6 @@ public class FileManager : MonoBehaviour {
 	public RectTransform canvasTransform;
 	private float canvasWidth;
 	private float canvasHeight;
-
 
 	void Start () {
 		canvasWidth = canvasTransform.rect.width;
@@ -145,21 +146,31 @@ public class FileManager : MonoBehaviour {
                     writer.Write(float.NaN);
                 }
 
-				///////////////////////////////////////////////////////////////////////
-				///Write the gaze point tracking data
+                ///////////////////////////////////////////////////////////////////////
+                ///Write the gaze point tracking data
 
                 Vector2 gazeVector = TobiiAPI.GetGazePoint().Viewport;
                 xpos.text = TobiiAPI.GetGazePoint().Screen.x.ToString();
                 ypos.text = TobiiAPI.GetGazePoint().Screen.y.ToString();
-                if (!float.IsNaN (gazeVector.x) && !float.IsNaN (gazeVector.y)) {
-					gazeVector.x = Map (gazeVector.x, 0, 1, -0.32f, 0.32f);
-					gazeVector.y = Map (gazeVector.y, 0, 1, -0.18f, 0.18f);
-					writer.Write (","+gazeVector.x+","+gazeVector.y);
-				} 
-				else 
-				{
-					writer.Write (",NaN,NaN");
-				}
+                if (!float.IsNaN(gazeVector.x) && !float.IsNaN(gazeVector.y))
+                {
+                    if (isTobiiOnTop)
+                    {
+                        gazeVector.x = Map(gazeVector.x, 0, 1, 0.32f, -0.32f);
+                        gazeVector.y = Map(gazeVector.y, 0, 1, 0.18f, -0.18f);
+                        writer.Write("," + gazeVector.x + "," + gazeVector.y);
+                    }
+                    else
+                    {
+                        gazeVector.x = Map(gazeVector.x, 0, 1, -0.32f, 0.32f);
+                        gazeVector.y = Map(gazeVector.y, 0, 1, -0.18f, 0.18f);
+                        writer.Write("," + gazeVector.x + "," + gazeVector.y);
+                    }
+                }
+                else
+                {
+                    writer.Write(",NaN,NaN");
+                }
                 writer.WriteLine();
             }
         }
