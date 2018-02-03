@@ -24,10 +24,19 @@ public class DrawGazePoint : MonoBehaviour {
         gazePoint.transform.SetParent(transform);
         // get the point where the user is looking, map it to the Canvas coordinates and set the position of the GameObject
         gazeVector = TobiiAPI.GetGazePoint().Screen;
+        /*
         if (!float.IsNaN(gazeVector.x) && !float.IsNaN(gazeVector.y))
         {
             gazeVector.x = Map(gazeVector.x, 0, Screen.width, -canvasWidth / 2, canvasWidth / 2);
             gazeVector.y = Map(gazeVector.y, 0, Screen.height, -canvasHeight / 2, canvasHeight / 2);
+            gazePoint.transform.localPosition = gazeVector;
+        }
+         */
+         //Above is the original one, for tobii to be placed on the bottom.
+        if (!float.IsNaN(gazeVector.x) && !float.IsNaN(gazeVector.y))
+        {
+            gazeVector.x = Map(gazeVector.x, 0, Screen.width, canvasWidth / 2, -canvasWidth / 2);
+            gazeVector.y = Map(gazeVector.y, 0, Screen.height, canvasHeight / 2, -canvasHeight / 2);
             gazePoint.transform.localPosition = gazeVector;
         }
         // destroy the object after 0.2 seconds
