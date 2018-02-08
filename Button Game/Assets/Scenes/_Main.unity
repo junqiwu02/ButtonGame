@@ -1105,6 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c616aa682cd51a74a81b368f8e0706f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bm: {fileID: 1145292154}
 --- !u!1 &785096905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,7 +2918,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 718364995}
-        m_MethodName: toCountDown
+        m_MethodName: toCountDownForNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

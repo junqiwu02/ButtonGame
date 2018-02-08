@@ -11,6 +11,9 @@ public class CountDown : MonoBehaviour {
     public AudioClip musicClip;
     public Text numText;
 
+
+    public ButtonManager bManager;
+
     public int timeToCount = 3;
     
     private double startTime;
@@ -18,8 +21,9 @@ public class CountDown : MonoBehaviour {
     private bool play = true;
 
     public static bool toCount = false;
+    public static bool next = false;
 
-	void Start ()
+    void Start ()
     {
         startTime = Time.time;
         musicSource.clip = musicClip;
@@ -41,14 +45,25 @@ public class CountDown : MonoBehaviour {
         if(toCount && timeToCount == 0)
         {
             startTime = double.MaxValue;
-            loadTestScene();
+            if (!next)
+                loadTestScene();
+            else
+            {
+                loadTestSceneForNext();
+                next = false;
+            }
             timeToCount = 3;
             toCount = false;
         }
 	}
 
-    public void loadTestScene()
+    public void loadTestSceneForNext()
     {
+        SceneManager.SetActiveScene(SceneManager.GetSceneAt(1));
+    }
+
+    public void loadTestScene()
+    { 
         SceneManager.LoadScene(1);
     }
     public void playSound()
