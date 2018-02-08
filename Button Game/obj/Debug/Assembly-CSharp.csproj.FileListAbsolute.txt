@@ -1,0 +1,2 @@
+D:\Users\baicheng\Documents\GitHub\ButtonGame\Button Game\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+D:\Users\baicheng\Documents\GitHub\ButtonGame\Button Game\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

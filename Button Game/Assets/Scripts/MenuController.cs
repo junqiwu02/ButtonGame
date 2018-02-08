@@ -54,6 +54,7 @@ public class MenuController : MonoBehaviour {
 
     public GameObject loginPanel;
     public GameObject mainPanel;
+    public GameObject countDownPanel;
 
     private string path;
     private string editorPath = "/Resources/Tests";
@@ -96,7 +97,8 @@ public class MenuController : MonoBehaviour {
         // load main scene if a test has been selected
         if(testLoaded)
         {
-            SceneManager.LoadScene(1);
+            CountDown.toCount = true;
+            SceneManager.LoadScene(2);
         }
     }
 

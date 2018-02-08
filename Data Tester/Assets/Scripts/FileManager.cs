@@ -21,7 +21,7 @@ public class FileManager : MonoBehaviour {
 
 	public Transform gazePoint;
 
-    private string path = "Assets/Resources/Data3.csv";
+    private string path = "Assets/Resources/Data4.csv";
     private StreamReader reader;
 
     private float[] timeStamps;

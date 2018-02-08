@@ -20,6 +20,10 @@ public class FileManager : MonoBehaviour {
     public Text xpos;
     public Text ypos;
 
+    private int framePerSecond;
+    private double[,] dataPerSecond;
+
+
     private HandModel lHand;
     private HandModel rHand;
     private FingerModel[] lFingers = new FingerModel[5];
@@ -38,7 +42,10 @@ public class FileManager : MonoBehaviour {
 	private float canvasHeight;
 
 	void Start () {
-		canvasWidth = canvasTransform.rect.width;
+        framePerSecond = (int)(1.0f / Time.deltaTime);
+        dataPerSecond = new double[100,framePerSecond];
+
+        canvasWidth = canvasTransform.rect.width;
 		canvasHeight = canvasTransform.rect.height;
 
         if(!MenuController.username.Equals("nosave"))
