@@ -19,10 +19,8 @@ public class FileManager : MonoBehaviour {
 
     public Text xpos;
     public Text ypos;
-
-    private int framePerSecond;
-    private double[,] dataPerSecond;
-
+    
+    private int fileCount;
 
     private HandModel lHand;
     private HandModel rHand;
@@ -40,10 +38,10 @@ public class FileManager : MonoBehaviour {
 	public RectTransform canvasTransform;
 	private float canvasWidth;
 	private float canvasHeight;
+    
 
 	void Start () {
-        framePerSecond = (int)(1.0f / Time.deltaTime);
-        dataPerSecond = new double[100,framePerSecond];
+        fileCount = 0;
 
         canvasWidth = canvasTransform.rect.width;
 		canvasHeight = canvasTransform.rect.height;
@@ -61,19 +59,32 @@ public class FileManager : MonoBehaviour {
             {
                 path = Application.dataPath + buildPath;
             }
-
             // set path username and time
-            path += MenuController.username + "_data_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".csv";
+            //Make a folder
+            path += MenuController.username+"_data_" + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss");
+            System.IO.Directory.CreateDirectory(path);
+            String initFilePath = path + "//"+ MenuController.username+"_FileNo_"+ fileCount+ ".csv";
             // clear the text file
-            File.WriteAllText(path, "");
-            writer = new StreamWriter(path, true);
+            File.WriteAllText(initFilePath, "");
+            writer = new StreamWriter(initFilePath, true);
             // title
             writer.WriteLine("time,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,,GazePoint.x,GazePoint.y");
             // writer.WriteLine("time,gaze,,touch,,button_pos,,l_palm,,,l_thumb,,,l_index,,,l_middle,,,l_ring,,,l_pinky,,,r_palm,,,r_thumb,,,r_index,,,r_middle,,,r_ring,,,r_pinky,,");
+            writer.Close();
+            fileCount += 1;
+
+            String filePath = path + "//" + MenuController.username + "_FileNo_" + fileCount + ".csv";
+            writer = new StreamWriter(filePath, true);
         }
     }
-
     void Update () {
+        if (Time.time-startTime>fileCount)
+        {
+            writer.Close();
+            fileCount += 1;
+            String filePath = path + "//" + MenuController.username + "_FileNo_" + fileCount + ".csv";
+            writer = new StreamWriter(filePath, true);
+        }
         if(!MenuController.username.Equals("nosave"))
         {
             double elapsedTime = Time.time - startTime;
