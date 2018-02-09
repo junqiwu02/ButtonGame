@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FileManager : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class FileManager : MonoBehaviour {
 
 	public Transform gazePoint;
 
-    private string path = "Assets/Resources/Data4.csv";
+    private string path;
     private StreamReader reader;
 
     private float[] timeStamps;
@@ -47,7 +48,9 @@ public class FileManager : MonoBehaviour {
 
 
 	void Start () {
-
+        string username = "aaaaaa";
+        CombineFiles(username);
+        path = "Assets/Resources/"+username+"DataSet.csv";
         int numOfLines = File.ReadAllLines(path).Length;
 
 		reader = new StreamReader(path);
@@ -77,6 +80,7 @@ public class FileManager : MonoBehaviour {
 		{
 			string[] data = reader.ReadLine().Split(',');
 
+            print(i + "..."+data[0]);
 			timeStamps[i] = float.Parse(data[0]);
 
             touchPos[i] = new Vector2(float.Parse(data[1]), float.Parse(data[2]));
@@ -99,8 +103,50 @@ public class FileManager : MonoBehaviour {
             gazePos[i] = new Vector2(float.Parse(data[41]), float.Parse(data[42]));
         }
 	}
-	
-	void Update () {
+
+    private void CombineFiles(string username)
+    {
+        string path = "Assets/Resources/";
+        
+        string folderpath = "";
+        foreach (string dic in Directory.GetDirectories(path))
+        {
+            string[] dicSegs = dic.Split('/');
+            if (dicSegs[dicSegs.Length-1].StartsWith(username + "_data_2018"))
+            {
+                if (folderpath == "")
+                {
+                    folderpath = dic;
+                    print(dic);
+                }
+                else
+                {
+                    print(name + " has more than 1 datasets");
+                }
+            }
+        }
+        if (folderpath != "")
+        {
+            int totalFileCount = Directory.GetFiles(folderpath).Length;
+            StreamWriter writer = new StreamWriter("Assets/Resources/" + username + "DataSet.csv");
+            for (int x = 1; x < totalFileCount/2; x++)
+            {
+                string filename = folderpath+"/"+username + "_FileNo_" + x+".csv";
+                //if(x==totalFileCount/2-1)
+                    writer.Write(new StreamReader(filename).ReadToEnd());
+                //else
+                    //writer.WriteLine(new StreamReader(filename).ReadToEnd());
+
+                writer.Flush();
+            }
+            writer.Close();
+        }
+        else {
+            print("no data available");
+        }
+    }
+
+    void Update () {
 		if(currTimeStamp < timeStamps.Length - 1)
         {
             if (Time.time >= timeStamps[currTimeStamp])
