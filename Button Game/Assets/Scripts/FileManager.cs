@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using Leap.Unity;
 using Tobii.Gaming;
-
+using UnityEngine.SceneManagement;
 
 public class FileManager : MonoBehaviour {
 
@@ -41,6 +41,8 @@ public class FileManager : MonoBehaviour {
     
 
 	void Start () {
+        SceneManager.LoadScene(2,LoadSceneMode.Additive);
+
         fileCount = 0;
 
         canvasWidth = canvasTransform.rect.width;

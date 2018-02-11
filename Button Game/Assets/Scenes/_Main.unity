@@ -821,7 +821,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406508451}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1128, y: 491.17145, z: 0}
+  m_LocalPosition: {x: -1128, y: 446.4183, z: 0}
   m_LocalScale: {x: 0.99998873, y: 0.99998873, z: 0.99998873}
   m_Children:
   - {fileID: 981070315}
@@ -1044,7 +1044,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718364991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1128, y: -541.17145, z: 0}
+  m_LocalPosition: {x: 1128, y: -496.4183, z: 0}
   m_LocalScale: {x: 0.99998873, y: 0.99998873, z: 0.99998873}
   m_Children: []
   m_Father: {fileID: 788131741}
@@ -1225,8 +1225,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 788131737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 420, y: 201.5, z: 0}
-  m_LocalScale: {x: 0.3723404, y: 0.3723404, z: 0.3723404}
+  m_LocalPosition: {x: 459, y: 202, z: 0}
+  m_LocalScale: {x: 0.4069149, y: 0.4069149, z: 0.4069149}
   m_Children:
   - {fileID: 2002575655}
   - {fileID: 785096906}
@@ -2917,8 +2917,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 718364995}
-        m_MethodName: toCountDownForNext
+      - m_Target: {fileID: 1145292154}
+        m_MethodName: MarkSeq
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

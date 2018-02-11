@@ -95,10 +95,10 @@ public class MenuController : MonoBehaviour {
     {
         isDebug = DebugMode.isOn;
         // load main scene if a test has been selected
+        //Load Count Down right a way.
         if(testLoaded)
         {
-            CountDown.toCount = true;
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1,LoadSceneMode.Single);
         }
     }
 

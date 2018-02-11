@@ -20,9 +20,6 @@ public class CountDown : MonoBehaviour {
 
     private bool play = true;
 
-    public static bool toCount = false;
-    public static bool next = false;
-
     void Start ()
     {
         startTime = Time.time;
@@ -31,47 +28,36 @@ public class CountDown : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (toCount && Time.time - startTime > 1)
+        if (Time.time - startTime > 1)
         {
             startTime += 1;
             timeToCount -= 1;
             numText.text = timeToCount+"";
         }
-        if (toCount && timeToCount == 1 && play && Time.time - startTime >= 0.5)
+        if (timeToCount == 1 && play && Time.time - startTime >= 0.5)
         {
             playSound();
-            setPlay(false);
+            play = false;
         }
-        if(toCount && timeToCount == 0)
+        if(timeToCount == 0)
         {
-            startTime = double.MaxValue;
-            if (!next)
-                loadTestScene();
-            else
-            {
-                loadTestSceneForNext();
-                next = false;
-            }
+            unloadSelf();
             timeToCount = 3;
-            toCount = false;
         }
 	}
-
-    public void loadTestSceneForNext()
+    public void unloadSelf()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneAt(1));
-    }
-
-    public void loadTestScene()
-    { 
-        SceneManager.LoadScene(1);
+        if (SceneManager.GetSceneByName("CountDown").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("CountDown"));
+        }
+        else
+        {
+            Debug.Log("Scene 2(CountDown) is never loaded, cannot unload");
+        }
     }
     public void playSound()
     {
         musicSource.Play();
-    }
-    public void setPlay(bool p)
-    {
-        play = p;
     }
 }
