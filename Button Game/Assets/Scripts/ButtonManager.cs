@@ -57,6 +57,7 @@ public class ButtonManager : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
             // hide done
             done.SetActive(false);
             // if the test has delays, open delayPanel and wait for button press
@@ -77,6 +78,7 @@ public class ButtonManager : MonoBehaviour
                 MarkSeq();
             }
         }
+
     }
 
     public void MarkSeq()

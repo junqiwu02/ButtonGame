@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_Main.unity
     guid: ca7e8a588dbb6974ab8f3dbbf42b895f
+  - enabled: 1
+    path: Assets/Scenes/CountDown.unity
+    guid: b3a425937f7363a4492f60a89b09d387
