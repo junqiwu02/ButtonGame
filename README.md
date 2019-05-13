@@ -13,3 +13,7 @@ This program was used as part of a study in motor learning in stroke patients wh
 
 - Options for calibration
 ![calibration](url)
+
+## Contributing
+This project was made in version 2017.1.0 of the Unity3D editor and has not been updated to support newer versions.
+Contact me if you wish to use or contribute to this software.
