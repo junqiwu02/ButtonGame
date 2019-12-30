@@ -1,4 +1,4 @@
-# Leap Motion Button Game
+# Leap Motion SRTT Analyzer
 A serial reaction time test program written in the Unity3D engine, utilizing the Leap Motion hand sensor.
 This program was used as part of a study in motor learning in patients with chronic pain which can be found [here](https://ieeexplore.ieee.org/abstract/document/8329689).
 
